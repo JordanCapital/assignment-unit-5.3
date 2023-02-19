@@ -28,3 +28,35 @@ console.log("New album:", addToCollection("Sorry 4 the wait", "Lil Wayne", "2011
 // console collection array
 
 console.log("collection:", collection);
+
+// showCollection function
+
+function showCollection(collection){
+    console.log(`Number of items are: ${collection.length}`);
+    for(const album of collection) {
+        console.log(album.title, "by", album.artist + ",", "published in", album.yearPublished);
+    }   
+}
+showCollection(collection);
+
+// Find by artist function
+function findByArtist(artist){
+    const arrAlbum = [];
+    for(const album of collection){
+        if(album.artist === artist){
+            arrAlbum.push(album);
+        }
+    }
+    return arrAlbum;
+}
+// test multiple albums
+const results = findByArtist("Lil Wayne");
+showCollection(results);
+
+// test by unkown artist
+console.log(`Album by artist:`);
+showCollection(findByArtist("Jay-z"));
+
+// test by single artist
+console.log(`Album by artist`);
+showCollection(findByArtist("Nas"));
